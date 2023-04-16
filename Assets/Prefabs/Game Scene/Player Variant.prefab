@@ -84,4 +84,17 @@ MonoBehaviour:
   HorizontalMovementRange: 24.25
   VerticalMovementRange: 13.5
   MovementSpeed: 20
-  FoodPrefab: {fileID: 6419653650658950623, guid: 2330b48fe1c582a44b98f2259be63b96, type: 3}
+  FoodPrefabs:
+  - {fileID: 6859296441990741919, guid: 210bdd58202201442ab1f67d60cc7709, type: 3}
+  - {fileID: 867203923127980170, guid: 3901ccee09e345a47960bd0d8700cd8f, type: 3}
+  - {fileID: 7115371136566786455, guid: 90e97cf55a1c1c94fba265d95adddb1a, type: 3}
+  - {fileID: 6419653650658950623, guid: 2330b48fe1c582a44b98f2259be63b96, type: 3}
+  - {fileID: 3176040581889396951, guid: f31ac2379a3bcbc4ab50c9a9bd34c888, type: 3}
+  - {fileID: 76139854018795286, guid: 470e22dfa986c3b49a1b8c3c3d1624a4, type: 3}
+  - {fileID: 5565912410427628340, guid: a0a347a0ce5cc7b449e465013f2bc16e, type: 3}
+  - {fileID: 1331043475669228826, guid: 654ce719aebe91749a053a33abdb2ef7, type: 3}
+  - {fileID: 4392602800657089314, guid: 34dbe312d8a9e9a48ae389193e6edd8d, type: 3}
+  - {fileID: 6668108944223645123, guid: 31d97ae86dfe2e644b7385cfa5e69ed6, type: 3}
+  - {fileID: 4642710103382135355, guid: e523fc99612c22348882375df5e45b54, type: 3}
+  - {fileID: 4694984451654423614, guid: d5eb654eeb6e28a4c9532cdf47851582, type: 3}
+  - {fileID: 6083805979387297778, guid: 0751d5ab53a7aa1429018a795a12de40, type: 3}

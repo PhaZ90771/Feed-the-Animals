@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using System;
 
 public class PlayerController : MonoBehaviour
 {
     public float HorizontalMovementRange = 10.0f;
     public float VerticalMovementRange = 10.0f;
     public float MovementSpeed = 20.0f;
-    public GameObject FoodPrefab;
+    public GameObject[] FoodPrefabs;
 
     private void Update()
     {
@@ -45,7 +44,9 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(FoodPrefab, transform.position, FoodPrefab.transform.rotation);
+            var index = Random.Range(0, FoodPrefabs.Length);
+            var food = FoodPrefabs[index];
+            Instantiate(food, transform.position, food.transform.rotation);
         }
     }
 
