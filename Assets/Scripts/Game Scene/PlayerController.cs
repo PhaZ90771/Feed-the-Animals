@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
         BoundPlayerPosition();
         TryThrowFood();        
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void MovePlayer()
@@ -48,6 +54,20 @@ public class PlayerController : MonoBehaviour
             var food = FoodPrefabs[index];
             Instantiate(food, transform.position, food.transform.rotation);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var animal = other.gameObject.GetComponent<Animal>();
+        if (animal)
+        {
+            animal.Feed();
+        }
+    }
+
+    public void Kill()
+    {
+        Destroy(this.gameObject);
     }
 
 #if UNITY_EDITOR
