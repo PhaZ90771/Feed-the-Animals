@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5887620559296731562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 20}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,10 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b7d67c99b2ce73408772f0be91a6776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HorizontalSpawnRange: 22
+  HorizontalSpawnRange: 1
+  VerticalSpawnRange: 1
   SpawnStartDelay: 2
   SpawnInterval: 1.5
   AnimalPrefabs:
   - {fileID: 5702688662946609254, guid: 846385f56960fef4fb7b8946d6b521fd, type: 3}
+  - {fileID: 9190745003685965126, guid: 2d8cf8f479d88214f819ff176753034c, type: 3}
   - {fileID: 5103221702669020757, guid: 5c2a3042a9a921b4bb15f49681f2e6fa, type: 3}
+  - {fileID: 84237268575600401, guid: f5fd5895847e8e44a9927ac8a3a9098e, type: 3}
+  - {fileID: 1886700459299558567, guid: 996113ceb4251c045923e056f7bece10, type: 3}
+  - {fileID: 6969152440469344283, guid: f8e61a8e1ad28ef4a9c382aedbd563ee, type: 3}
   - {fileID: 1877579418844312898, guid: fa093121e0fe15f40a67fbc9a6626c57, type: 3}
+  - {fileID: 5129695563737695444, guid: befefb79f22674345a575eb4c1f6d5d1, type: 3}

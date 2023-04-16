@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public float HorizontalSpawnRange = 15f;
+    public float HorizontalSpawnRange = 10f;
+    public float VerticalSpawnRange = 10f;
     public float SpawnStartDelay = 2.0f;
     public float SpawnInterval = 1.5f;
+    public ORIENTATION SpawnOrientation = ORIENTATION.Downwards;
 
     public GameObject[] AnimalPrefabs;
 
@@ -24,10 +26,25 @@ public class SpawnManager : MonoBehaviour
         var x = transform.position.x;
         var xOffset = Random.Range(-HorizontalSpawnRange, HorizontalSpawnRange);
         var z = transform.position.z;
-        var position = new Vector3(x + xOffset, 0f, z);
+        var zOffset = Random.Range(-VerticalSpawnRange, VerticalSpawnRange);
+        var position = new Vector3(x + xOffset, 0f, z + zOffset);
 
         var rotation = animal.transform.rotation;
-
+        switch (SpawnOrientation)
+        {
+            case ORIENTATION.Downwards:
+                rotation *= Quaternion.LookRotation(Vector3.forward);
+                break;
+            case ORIENTATION.Upwards:
+                rotation *= Quaternion.LookRotation(Vector3.back);
+                break;
+            case ORIENTATION.Leftwards:
+                rotation *= Quaternion.LookRotation(Vector3.right);
+                break;
+            case ORIENTATION.Rightwards:
+                rotation *= Quaternion.LookRotation(Vector3.left);
+                break;
+        }
         Instantiate(animal, position, rotation);
     }
 
@@ -39,30 +56,29 @@ public class SpawnManager : MonoBehaviour
         Gizmos.color = gizmoColor;
 
         var guiStyle = new GUIStyle();
-        guiStyle.alignment = TextAnchor.UpperCenter;
+        guiStyle.alignment = TextAnchor.LowerCenter;
         guiStyle.normal.textColor = gizmoColor;
 
         var middleX = transform.position.x;
         var left = middleX - HorizontalSpawnRange;
         var right = middleX + HorizontalSpawnRange;
         var middleZ = transform.position.z;
-        var bottom = middleZ - 0.5f;
-        var top = middleZ + 0.5f;
+        var bottom = middleZ - VerticalSpawnRange;
+        var top = middleZ + VerticalSpawnRange;
 
-        var leftMiddle = new Vector3(left, 0f, middleZ);
-        var rightMiddle = new Vector3(right, 0f, middleZ);
-        Gizmos.DrawLine(leftMiddle, rightMiddle);
+        var size = new Vector3(HorizontalSpawnRange * 2f, 0f, VerticalSpawnRange * 2f);
+        Gizmos.DrawWireCube(transform.position, size);
 
-        var leftBottom = new Vector3(left, 0f, bottom);
-        var leftTop = new Vector3(left, 0f, top);
-        Gizmos.DrawLine(leftBottom, leftTop);
-
-        var rightBottom = new Vector3(right, 0f, bottom);
-        var rightTop = new Vector3(right, 0f, top);
-        Gizmos.DrawLine(rightBottom, rightTop);
-
-        var labelPosition = new Vector3(middleX, 0f, top - 0.5f);
+        var labelPosition = new Vector3(middleX, 0f, top + 0.5f);
         Handles.Label(labelPosition, "Animal Spawn Range", guiStyle);
     }
 #endif
+
+    public enum ORIENTATION
+    {
+        Downwards,
+        Upwards,
+        Leftwards,
+        Rightwards
+    }
 }

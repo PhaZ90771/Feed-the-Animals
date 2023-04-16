@@ -43,14 +43,14 @@ public class OutOfBoundsController : MonoBehaviour
         Gizmos.color = gizmoColor;
 
         var guiStyle = new GUIStyle();
-        guiStyle.alignment = TextAnchor.UpperCenter;
+        guiStyle.alignment = TextAnchor.LowerCenter;
         guiStyle.normal.textColor = gizmoColor;
 
         var topLeft = new Vector3(-HorizontalMovementRange, 0f, VerticalMovementRange);
         var topRight = new Vector3(HorizontalMovementRange, 0f, VerticalMovementRange);
         var bottomLeft = new Vector3(-HorizontalMovementRange, 0f, -VerticalMovementRange);
         var bottomRight = new Vector3(HorizontalMovementRange, 0f, -VerticalMovementRange);
-        var topMiddle = new Vector3(0f, 0f, VerticalMovementRange - 0.25f);
+        var topMiddle = new Vector3(0f, 0f, VerticalMovementRange + 0.25f);
 
         Gizmos.DrawLine(topLeft, topRight);
         Gizmos.DrawLine(topRight, bottomRight);
