@@ -10,8 +10,9 @@ public class PlayerController : MonoBehaviour
     public float VerticalMovementRange = 10.0f;
     public float MovementSpeed = 20.0f;
     public GameObject[] FoodPrefabs;
+    public GameObject HurtEffect;
 
-    public ScoreTracker ScoreTracker;
+    private ScoreTracker ScoreTracker;
     public int Lives { get; private set; } = 3;
 
     private void Awake()
@@ -71,6 +72,9 @@ public class PlayerController : MonoBehaviour
     public void Kill()
     {
         Lives--;
+        var hurtPos = transform.position + HurtEffect.transform.position;
+        var hurtRot = HurtEffect.transform.rotation;
+        Instantiate(HurtEffect, hurtPos, hurtRot, null);
         if (Lives <= 0)
         {
             SceneManager.LoadScene(2);
