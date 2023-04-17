@@ -7,6 +7,7 @@ public class Animal : MonoBehaviour
 {
     public float Hunger = 1f;
     public float Satiation = 0f;
+    public GameObject satiationEffectPrefab;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +28,9 @@ public class Animal : MonoBehaviour
         Satiation++;
         if (Satiation >= Hunger)
         {
+            var effectPos = transform.position + satiationEffectPrefab.transform.position;
+            var effectRot = satiationEffectPrefab.transform.rotation;
+            Instantiate(satiationEffectPrefab, effectPos, effectRot, null);
             Destroy(this.gameObject);
         }
     }

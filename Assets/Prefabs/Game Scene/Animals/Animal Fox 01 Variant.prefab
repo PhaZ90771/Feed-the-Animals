@@ -232,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hunger: 1
   Satiation: 0
+  satiationEffectPrefab: {fileID: 5137948005999808539, guid: 9473d2c0e87b61540ab4ef6b96b617b5, type: 3}
 --- !u!114 &3681254463916782357
 MonoBehaviour:
   m_ObjectHideFlags: 0
