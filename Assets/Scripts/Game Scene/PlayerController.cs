@@ -20,11 +20,6 @@ public class PlayerController : MonoBehaviour
         TryThrowFood();        
     }
 
-    private void OnDestroy()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
     private void MovePlayer()
     {
         var horizontalInput = Input.GetAxis("Horizontal");
@@ -69,6 +64,7 @@ public class PlayerController : MonoBehaviour
 
     public void Kill()
     {
+        SceneManager.LoadScene(2);
         Destroy(this.gameObject);
     }
 
