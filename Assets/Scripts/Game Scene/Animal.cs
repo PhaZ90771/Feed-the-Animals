@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Animal : MonoBehaviour
 {
+    public float Hunger = 1f;
+    public float Satiation = 0f;
+
     private void OnTriggerEnter(Collider other)
     {
         var food = other.gameObject.GetComponent<Food>();
@@ -21,6 +24,10 @@ public class Animal : MonoBehaviour
 
     public void Feed()
     {
-        Destroy(this.gameObject);
+        Satiation++;
+        if (Satiation >= Hunger)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
