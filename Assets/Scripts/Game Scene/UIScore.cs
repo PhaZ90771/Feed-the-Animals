@@ -16,6 +16,6 @@ public class UIScore : MonoBehaviour
 
     private void Update()
     {
-        textObj.text = "Score: " + scoreTracker.Score.ToString();
+        textObj.text = "Thanks: " + scoreTracker.Score.ToString();
     }
 }
