@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class UIScore : MonoBehaviour
 {
-    private PlayerController player;
+    private ScoreTracker scoreTracker;
     private TMP_Text textObj;
 
     private void Awake()
     {
-        player = FindObjectOfType<PlayerController>();
+        scoreTracker = FindObjectOfType<ScoreTracker>();
         textObj = GetComponent<TMP_Text>();
     }
 
     private void Update()
     {
-        textObj.text = "Score: " + player.Score.ToString();
+        textObj.text = "Score: " + scoreTracker.Score.ToString();
     }
 }

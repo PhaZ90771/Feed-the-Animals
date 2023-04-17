@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    private PlayerController player;
+    private ScoreTracker scoreTracker;
 
     private void Awake()
     {
-        player = FindObjectOfType<PlayerController>();
+        scoreTracker = FindObjectOfType<ScoreTracker>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -17,7 +17,7 @@ public class Food : MonoBehaviour
         if (animal)
         {
             animal.Feed();
-            player.Score++;
+            scoreTracker.Score++;
         }
     }
 

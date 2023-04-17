@@ -11,7 +11,12 @@ public class PlayerController : MonoBehaviour
     public float MovementSpeed = 20.0f;
     public GameObject[] FoodPrefabs;
 
-    public uint Score = 0;
+    public ScoreTracker ScoreTracker;
+
+    private void Awake()
+    {
+        ScoreTracker = FindAnyObjectByType<ScoreTracker>();
+    }
 
     private void Update()
     {
