@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public GameObject[] FoodPrefabs;
 
     public ScoreTracker ScoreTracker;
+    public int Lives { get; private set; } = 3;
 
     private void Awake()
     {
@@ -69,8 +70,12 @@ public class PlayerController : MonoBehaviour
 
     public void Kill()
     {
-        SceneManager.LoadScene(2);
-        Destroy(this.gameObject);
+        Lives--;
+        if (Lives <= 0)
+        {
+            SceneManager.LoadScene(2);
+            Destroy(this.gameObject);
+        }
     }
 
 #if UNITY_EDITOR
