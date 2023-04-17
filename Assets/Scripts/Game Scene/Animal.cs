@@ -5,9 +5,16 @@ using UnityEngine;
 
 public class Animal : MonoBehaviour
 {
-    public float Hunger = 1f;
-    public float Satiation = 0f;
+    public int Hunger = 1;
+    public int Satiation = 0;
     public GameObject satiationEffectPrefab;
+
+    private ScoreTracker scoreTracker;
+
+    private void Awake()
+    {
+        scoreTracker = FindObjectOfType<ScoreTracker>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,6 +35,8 @@ public class Animal : MonoBehaviour
         Satiation++;
         if (Satiation >= Hunger)
         {
+            scoreTracker.Score += Hunger;
+
             var effectPos = transform.position + satiationEffectPrefab.transform.position;
             var effectRot = satiationEffectPrefab.transform.rotation;
             Instantiate(satiationEffectPrefab, effectPos, effectRot, null);

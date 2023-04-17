@@ -16,6 +16,6 @@ public class UIHungerBar : MonoBehaviour
 
     private void Update()
     {
-        slider.value = animal.Satiation / animal.Hunger;
+        slider.value = (float)animal.Satiation / (float)animal.Hunger;
     }
 }
