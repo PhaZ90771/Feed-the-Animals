@@ -39,7 +39,8 @@ public class Animal : MonoBehaviour
 
             var effectPos = transform.position + satiationEffectPrefab.transform.position;
             var effectRot = satiationEffectPrefab.transform.rotation;
-            Instantiate(satiationEffectPrefab, effectPos, effectRot, null);
+            var UIFed = Instantiate(satiationEffectPrefab, effectPos, effectRot, null).GetComponentInChildren<UIFed>();
+            UIFed.Points = Hunger;
             Destroy(this.gameObject);
         }
     }
