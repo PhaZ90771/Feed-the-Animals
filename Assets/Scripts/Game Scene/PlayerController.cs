@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float MovementSpeed = 20.0f;
     public GameObject[] FoodPrefabs;
 
+    public uint Score = 0;
+
     private void Update()
     {
         MovePlayer();

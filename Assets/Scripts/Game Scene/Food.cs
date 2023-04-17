@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
+    private PlayerController player;
+
+    private void Awake()
+    {
+        player = FindObjectOfType<PlayerController>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         var animal = other.gameObject.GetComponent<Animal>();
         if (animal)
         {
             animal.Feed();
+            player.Score++;
         }
     }
 
